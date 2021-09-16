@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="toDoStyle.css">
+    <script src="https://kit.fontawesome.com/fd4c5b580d.js" crossorigin="anonymous"></script>
+
+    <title>Task Nudge</title>
+</head>
+
+<body>
+
+    <div class="container-fluid bg-dark">
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-2 mb-4">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
+                    <img src="illustration/todoIcon2.jpg" alt="" style="width: 60px; height: 60px;">
+                    <span class="fs-4 px-3">Task Nudge</span>
+                </a>
+            </header>
+        </div>
+    </div>
+    <div class="container d-flex align-items-center justify-content-center" id="home">
+        <div>
+            <div class="home-left">
+                <h1 class="display-1">To Do App</h1>
+                <p class="lead">It makes your life easy, simple, and organized. Organize your tasks and complete them on
+                    time with this To Do app</p>
+                <a class="btn btn-outline-dark" href="#task-app" role="button">Check it now</a>
+            </div>
+            <!-- <div class="home-right" id="home-illustration"> -->
+            <img class="home-right" id="home-illustration" src="./illustration/to-do-list.png" alt="">
+            <!-- </div> -->
+        </div>
+    </div>
+
+
+    <!-- taskbar  -->
+    <div class="container" id="task-app">
+        <div class="container bg-dark d-flex align-items-center" id="taskbar">
+            <div class="row w-100 d-flex justify-content-between">
+                <div class="col-2 d-flex align-items-center" id="nav-bars">
+                    <i class="fas fa-bars fa-lg" id="navButton" style="color: #D9D8D7;"></i>
+                </div>
+                <div class="col-2 d-flex justify-content-center">
+                    <h3 class="text-light">Tasks</h3>
+                </div>
+                <div class="col-2 d-flex justify-content-end add-task" data-bs-toggle="modal"
+                    data-bs-target="#createNewTask">
+                    <div class="add-button-bg rounded-circle" style="font-size: 1.5rem;">
+                        <i class="fas fa-plus-circle fa-2x" style="color: #03658C"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- nav bar  -->
+        <nav class="bg-dark" id="navbar">
+            <button class="nav-link">To Do</button>
+            <button class="nav-link">Done</button>
+            <div class="nav-divider"></div>
+            <button class="nav-link">Show All Tasks</button>
+        </nav>
+
+        <!-- task container  -->
+        <div class="container border border-primary mb-4 p-4" id="task-container">
+            <div class="container-md p-4 d-flex flex-column align-items-center" id="empty-task">
+                <h3>Let's start your journey</h3>
+                <p>Click on the '+' button to add tasks</p>
+                <div class="add-task" data-bs-toggle="modal" data-bs-target="#createNewTask" style="cursor: pointer;">
+                    <i class="fas fa-plus-circle fa-3x" style="color: #03658C"></i>
+                </div>
+            </div>
+
+            <!-- <div class="tasks  border border-success">
+                <div class="incomplete"><i class="fas fa-check-circle"></i></div>
+                <input class="task-title" value="Task Title"
+                    oninput="this.style.width = (this.value.length - 1) + 'ch';"></input>
+                <textarea cols="" rows="3" class="task-desc"></textarea>
+                <div class="task-label">label</div>
+                <button type="button" class="delete-task">&times;</button>
+                <div class="task-footer">
+                    <button type="button" class="color-palette">
+                        <i class="fas fa-palette fa-2x" style="color: #212529;"></i>
+                    </button>
+                </div>
+                <div class="color-panel">
+                    <div class="color-heading">Colors</div>
+                    <button class="closePanelBtn">&times;</button>
+                    <div class="task-colors">
+                        <button class="color-btn"></button>
+                        <button class="color-btn"></button>
+                        <button class="color-btn"></button>
+                    </div>
+                </div>
+                <div class="expand-btn">
+                    <div class="expButton"></div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- create new task page  -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="createNewTask" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label for="new-title" class="form-label"></label>
+                    <input type="text" class="form-control" id="new-title" placeholder="Title"
+                        style="font-size: 1.3rem;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="description" class="form-label"></label>
+                    <textarea name="description" id="description" cols="" rows="10" placeholder="Description"
+                        style="width: 100%;"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <!-- <label for="new-label" class="form-label"></label>
+                    <input type="text" class="form-control" id="new-label" placeholder="Any label" maxlength="30"
+                        onkeypress="return (event.charCode >= 97 && event.charCode <= 122)"> -->
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="save-task">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer  -->
+    <div class="container-fluid footer">
+        <div class="container d-flex flex-column align-items-center py-3">
+            <div class="footer-line"></div>
+            <div class="py-2 px-3 " style="font-size:1.2rem;">Checkout other projects</div>
+            <div class="projects d-flex flex-column align-items-center">
+                <a href="https://kishan-kr.github.io/tic-tac-toe/">Tic tac toe</a>
+                <a href="https://kishan-kr.github.io/clock/">Clock</a>
+                <a href="https://kishan-kr.github.io/calculator/">Calculator</a>
+                <a href="https://kishan-kr.github.io/mellow/">Music Player</a>
+            </div>
+            <div class="find-me px-2 my-2 mt-3" style="font-size: 1.2rem;">Find me on</div>
+            <div class="footer-line icon-line"></div>
+            <div class="icon-container d-flex my-2 mt-4">
+                <div class="icon-box">
+                    <a href="https://www.linkedin.com/in/kishan-k/" target="_blank" class="social-icon"
+                        rel="noreferrer">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <div class="icon-overlay" lable="LinkedIn"></div>
+                </div>
+                <div class="icon-box">
+                    <a href="https://www.instagram.com/its_kishan_singh/" target="_blank" class="social-icon"
+                        rel="noreferrer">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <div class="icon-overlay" lable="Instagram"></div>
+                </div>
+                <div class="icon-box">
+                    <a href="https://github.com/Kishan-kr" target="_blank" class="social-icon" rel="noreferrer">
+                        <i class="fab fa-github-square fa-2x"></i>
+                    </a>
+                    <div class="icon-overlay" lable="Github"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+<script src="todo.js"></script>
+
+</html>
